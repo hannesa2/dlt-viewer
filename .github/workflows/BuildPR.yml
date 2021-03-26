@@ -40,7 +40,7 @@ jobs:
       - name: Build project
         run: scripts/darwin/build_cmake.sh
       - name: Build dmg
-        run: hdiutil create -volname DLT-viewer -srcfolder build/release -ov -format UDZO DLT-Viewer.dmg
+        run: cd build/release && macdeployqt DLT-viewer.app -dmg
       - name: Codesign app bundle
         if: "! github.event.pull_request.head.repo.fork " # not running on a fork
         # Extract the secrets we defined earlier as environment variables
