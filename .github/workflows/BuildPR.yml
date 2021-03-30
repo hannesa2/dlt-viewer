@@ -39,8 +39,8 @@ jobs:
         run: cmake --version
       - name: Build project
         run: scripts/darwin/build_cmake.sh
-      - name: Build dmg
-        run: cd build/release && macdeployqt dlt-viewer.app -dmg
+      #- name: Build dmg
+      #  run: cd build/release && macdeployqt dlt-viewer.app -dmg
       - name: Codesign app bundle
         if: "! github.event.pull_request.head.repo.fork " # not running on a fork
         # Extract the secrets we defined earlier as environment variables
