@@ -27,8 +27,8 @@ source ~/.bash_profile
 uname -a
 if [[ $(uname -m) == 'arm64' ]]; then
   echo "Run on MacOS arm64"
-  sudo ln -s -F "/opt/homebrew/Cellar/qt@6/${QT_VERSION}/mkspecs" /usr/local/mkspecs
-  sudo ln -s -F "/opt/homebrew/Cellar/qt@6/${QT_VERSION}/plugins" /usr/local/plugins
+#  sudo ln -s -F "/opt/homebrew/Cellar/qt@6/${QT_VERSION}/mkspecs" /usr/local/mkspecs
+#  sudo ln -s -F "/opt/homebrew/Cellar/qt@6/${QT_VERSION}/plugins" /usr/local/plugins
 else
   echo "Run on MacOS x86"
   sudo ln -s "/usr/local/Cellar/qt@5/${QT_VERSION}/mkspecs" /usr/local/mkspecs
