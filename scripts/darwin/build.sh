@@ -17,12 +17,11 @@ if [[ $(uname -m) == 'arm64' ]]; then
   qmake ../BuildDltViewer.pro
 #  cmake ..
 else
-  Qt5_DIR="/usr/local/opt/qt"
+  Qt5_DIR="/usr/local/opt/qt@6"
   echo "Build with qmake $(uname -m) $Qt5_DIR"
   #qmake ../BuildDltViewer.pro
   #make
 fi
-
 #make
 
 echo Cleanup
