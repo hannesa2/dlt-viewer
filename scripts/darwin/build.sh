@@ -11,9 +11,18 @@ rm -rf "${SRC_DIR}/build"
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
 
-Qt5_DIR="/usr/local/opt/qt"
-echo "Run on MacOS $(uname -m) Qt5_DIR=$Qt5_DIR"
-#qmake ../BuildDltViewer.pro
+if [[ $(uname -m) == 'arm64' ]]; then
+  Qt5_DIR="/opt/homebrew/opt/qt5"
+  # for an unknown reason, I was not able to make it work with qmake. Any help is welcome here TODO
+  #echo Build with cmake
+  #cmake ..
+else
+  Qt5_DIR="/usr/local/opt/qt"
+  #echo Build with QMake
+  #qmake ../BuildDltViewer.pro
+  #make
+fi
+
 #make
 
 echo Cleanup
