@@ -5,6 +5,7 @@ env
 pwd
 
 brew update
+brew install cmake
 brew install qt@6
 brew unlink qt@5 && brew link --force qt@5
 #brew link --overwrite qt@6 --force --overwrite
