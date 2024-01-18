@@ -12,9 +12,9 @@ mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
 
 if [[ $(uname -m) == 'arm64' ]]; then
-  Qt5_DIR="/opt/homebrew/opt/qt5"
+  Qt5_DIR="/opt/homebrew/opt/qt@6"
 else
-  Qt5_DIR="/usr/local/opt/qt"
+  Qt5_DIR="/usr/local/opt/qt@6"
 fi
 echo "Run on MacOS $(uname -m) Qt5_DIR=$Qt5_DIR"
 #qmake ../BuildDltViewer.pro
