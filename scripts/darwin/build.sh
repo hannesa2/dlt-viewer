@@ -11,10 +11,14 @@ rm -rf "${SRC_DIR}/build"
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
 
-Qt5_DIR="/usr/local/opt/qt"
+if [[ $(uname -m) == 'arm64' ]]; then
+  Qt5_DIR="/opt/homebrew/opt/qt@6"
+else
+  Qt5_DIR="/usr/local/opt/qt@6"
+fi
 echo "Run on MacOS $(uname -m) Qt5_DIR=$Qt5_DIR"
-qmake ../BuildDltViewer.pro
-make
+#qmake ../BuildDltViewer.pro
+#make
 
 echo Cleanup
 rm -rf "${INSTALL_DIR}"
@@ -28,9 +32,10 @@ echo Build with CMake
 cmake -G Ninja \
   -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
   -DCMAKE_PREFIX_PATH=/opt/qt512/lib/cmake \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=12.7 \
   -DCMAKE_BUILD_TYPE=Release \
   -DDLT_USE_QT_RPATH=ON \
-  -DDLT_PARSER=OFF \
+  -DDLT_PARSER=ON \
   -DDLT_APP_DIR_NAME=${APP_DIR_NAME} \
   -DDLT_LIBRARY_INSTALLATION_PATH="${APP_DIR_NAME}/Contents/Frameworks" \
   -DDLT_EXECUTABLE_INSTALLATION_PATH="${APP_DIR_NAME}/Contents/MacOS" \
