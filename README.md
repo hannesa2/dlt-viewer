@@ -1,3 +1,4 @@
+[![PullRequest](https://github.com/hannesa2/dlt-viewer/actions/workflows/BuildPR.yml/badge.svg)](https://github.com/hannesa2/dlt-viewer/actions/workflows/BuildPR.yml)
 # Diagnostic Log and Trace Viewer
 
 ## Overview
