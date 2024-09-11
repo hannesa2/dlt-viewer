@@ -39,6 +39,8 @@ jobs:
         run: cmake --version
       - name: Build project
         run: scripts/darwin/build_cmake.sh
+      - name: Investigate
+        run: find build -name "DLTViewer*"
       - name: Codesign app bundle
         if: "! github.event.pull_request.head.repo.fork " # not running on a fork
         # Extract the secrets we defined earlier as environment variables
@@ -104,8 +106,9 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
-          name: DLTViewer-${{ matrix.macos }}-${{ matrix.abi }}
-          path: build/dist/DLTViewer*.tgz
+          name: DLTViewer-MacOS-${{ matrix.abi }}
+          path: |
+            build/install/DLTViewer.*
 
 
   buildUbuntu20:
