@@ -39,12 +39,15 @@ jobs:
         run: cmake --version
       - name: Build project
         run: scripts/darwin/build.sh
+      - name: Investigate
+        run: find build -name "DLTViewer*"
       - name: Archive artifact
         uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
-          name: DLTViewer-${{ matrix.macos }}-${{ matrix.abi }}
-          path: build/dist/DLTViewer*.tgz
+          name: DLTViewer-MacOS-${{ matrix.abi }}
+          path: |
+            build/install/DLTViewer.*
 
   buildLinux:
     name: Build ${{ matrix.ubuntu }}
